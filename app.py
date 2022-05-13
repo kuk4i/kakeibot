@@ -3,7 +3,7 @@ import csv
 from csv import reader
 
 #change directory to your local csv file
-data = "/Users/kaito/Desktop/Project/kakeibot/out.csv"
+data = "./out.csv"
 #today = YYYY-MM-DD
 today = date.today()
 year = today.strftime("%Y")
@@ -129,12 +129,14 @@ def checkfund(lolist):
 if __name__ == "__main__":
     user = []
     
-
-    with open(data, "r") as read_obj:
-        # pass the file object to reader() to get the reader object
-        csv_reader = reader(read_obj)
-        # Pass reader object to list() to get a list of lists
-        user = list(csv_reader)
+    try:
+        with open(data, "r") as read_obj:
+            # pass the file object to reader() to get the reader object
+            csv_reader = reader(read_obj)
+            # Pass reader object to list() to get a list of lists
+            user = list(csv_reader)
+    except:
+        pass
 
     while True:
         print("")
